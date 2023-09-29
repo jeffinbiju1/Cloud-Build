@@ -1,7 +1,7 @@
 # wf-helloworld.yaml
-api: v2
-name: <name for your workflow>
-serviceAccount: "projects/<your project>/serviceAccounts/<your sa>@<your project>.iam.gserviceaccount.com"
+
+name: testworkflow
+serviceAccount: "projects/cloud-aoss-dev/serviceAccounts/cloudbuildgen2@cloud-aoss-dev.iam.gserviceaccount.com"
 
 pipeline:
   spec:
@@ -10,9 +10,8 @@ pipeline:
       taskSpec:
         steps:
         - image: busybox
-          command: echo
-          args: "Hello World!"
+          script: echo "Hello World!"
 
 options:
   executionEnvironment:
-    workerPool: "projects/<your project>/locations/us-central1/workerPools/<your wp name>"
+    workerPool: "projects/cloud-aoss-dev/locations/us-central1/workerPools/testPoolV2"
