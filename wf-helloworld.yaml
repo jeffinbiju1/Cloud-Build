@@ -1,0 +1,18 @@
+# wf-helloworld.yaml
+api: v2
+name: <name for your workflow>
+serviceAccount: "projects/<your project>/serviceAccounts/<your sa>@<your project>.iam.gserviceaccount.com"
+
+pipeline:
+  spec:
+    tasks:
+    - name: pipeline-task
+      taskSpec:
+        steps:
+        - image: busybox
+          command: echo
+          args: "Hello World!"
+
+options:
+  executionEnvironment:
+    workerPool: "projects/<your project>/locations/us-central1/workerPools/<your wp name>"
