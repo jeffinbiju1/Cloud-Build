@@ -1,17 +1,23 @@
-# wf-helloworld.yaml
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage', 
+           '.']
 
-name: testworkflow
-serviceAccount: "projects/cloud-aoss-dev/serviceAccounts/cloudbuildgen2@cloud-aoss-dev.iam.gserviceaccount.com"
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage']
 
-pipeline:
-  spec:
-    tasks:
-    - name: pipeline-task
-      taskSpec:
-        steps:
-        - image: busybox
-          script: echo "Hello Google!"
-
-options:
-  executionEnvironment:
-    workerPool: "projects/cloud-aoss-dev/locations/us-central1/workerPools/testPoolV2"
+  # Entrypoint, timeout and environment variables
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    timeout: 240s
+    args: ['compute', 'instances', 
+           'create-with-container', 'my-vm-name',
+           '--container-image', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage']
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
