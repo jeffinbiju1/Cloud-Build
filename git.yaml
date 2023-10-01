@@ -1,7 +1,14 @@
-name: hello-pipeline
-trigger:
-- name: push
-  branch: main
-steps:
-- name: 'Print "Hello, world!"'
-  entrypoint: 'echo "Hello, world!"'
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: hello-pipeline
+spec:
+  tasks:
+  - name: print-hello-world
+    taskRef:
+      apiVersion: tekton.dev/v1alpha1
+      kind: Task
+      name: print-hello-world-task
+    params:
+    - name: message
+      value: "Hello, world!"
