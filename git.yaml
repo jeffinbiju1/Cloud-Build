@@ -1,14 +1,26 @@
-apiVersion: tekton.dev/v1alpha1
-kind: Pipeline
+# pipelinerun.yaml
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
 metadata:
-  name: hello-pipeline
+  name: testPipelineRun # e.g. my-first-pipeline, or pick your own name
+  annotations:
+    cloudbuild.googleapis.com/worker-pool: projects/cloud-aoss-dev/locations/us-central1/workerPools/testPoolV2
+
 spec:
-  tasks:
-  - name: print-hello-world
-    taskRef:
-      apiVersion: tekton.dev/v1alpha1
-      kind: Task
-      name: print-hello-world-task
-    params:
-    - name: message
-      value: "Hello, world!"
+  serviceAccountName: "projects/cloud-aoss-dev/serviceAccounts/cloudbuildgen2@cloud-aoss-dev.iam.gserviceaccount.com"
+  pipelineSpec:
+    tasks:
+    - name: pipeline-task
+      taskSpec:
+        steps:
+        - name: step1
+          image: ubuntu
+          command: echo
+          args: "Hello Pipeline!"
+    - name: pipeline-task2
+      taskSpec:
+        steps:
+        - name: step1
+          image: ubuntu
+          command: echo
+          args: "Hello Pipeline Again!"
