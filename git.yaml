@@ -5,5 +5,5 @@ spec:
         steps:
         - image: busybox
           command: echo
-          args: "Hello World!"
+          args: ["Hello World!"]
 
