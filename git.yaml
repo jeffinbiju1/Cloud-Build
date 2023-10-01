@@ -1,24 +1,7 @@
-tasks:
-    - name: say-hello
-      taskSpec:
-        results:
-          - name: hello-result
-        steps:
-        - name: sleep-step
-          image: ubuntu
-          command: sleep
-          args: "10" 
-        - image: busybox
-          script: echo -n "nap" > "$(results.hello-result.path)"
-    - name: say-goodbye
-      when:
-        - input: "$(tasks.say-hello.results.hello-result)"
-          operator: in
-          values:
-            - "nap"
-            - "wake"
-      taskSpec:
-        steps:
-        - image: busybox
-          script: echo "Goodbye for now!"
-
+name: hello-pipeline
+trigger:
+- name: push
+  branch: main
+steps:
+- name: 'Print "Hello, world!"'
+  entrypoint: 'echo "Hello, world!"'
