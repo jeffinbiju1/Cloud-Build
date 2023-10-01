@@ -1,18 +1,9 @@
-# taskrun.yaml
-apiVersion: tekton.dev/v1beta1
-kind: TaskRun
-metadata:
-  name: <name of the taskrun>
-  annotations:
-    cloudbuild.googleapis.com/worker-pool: projects/<your project>/locations/us-central1/workerPools/<your wp>
-
 spec:
-  serviceAccountName: "projects/<your project>/serviceAccounts/<your sa>@<your project>.iam.gserviceaccount.com"
-  taskSpec:
-   steps:
-   - name: step1
-     image: ubuntu
-     command: echo
-     args: "Hello Task World!"
-
+    tasks:
+    - name: pipeline-task
+      taskSpec:
+        steps:
+        - image: busybox
+          command: echo
+          args: "Hello World!"
 
