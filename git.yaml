@@ -1,26 +1,18 @@
-# pipelinerun.yaml
+# taskrun.yaml
 apiVersion: tekton.dev/v1beta1
-kind: PipelineRun
+kind: TaskRun
 metadata:
-  name: testPipelineRun # e.g. my-first-pipeline, or pick your own name
+  name: <name of the taskrun>
   annotations:
-    cloudbuild.googleapis.com/worker-pool: projects/cloud-aoss-dev/locations/us-central1/workerPools/testPoolV2
+    cloudbuild.googleapis.com/worker-pool: projects/<your project>/locations/us-central1/workerPools/<your wp>
 
 spec:
-  serviceAccountName: "projects/cloud-aoss-dev/serviceAccounts/cloudbuildgen2@cloud-aoss-dev.iam.gserviceaccount.com"
-  pipelineSpec:
-    tasks:
-    - name: pipeline-task
-      taskSpec:
-        steps:
-        - name: step1
-          image: ubuntu
-          command: echo
-          args: "Hello Pipeline!"
-    - name: pipeline-task2
-      taskSpec:
-        steps:
-        - name: step1
-          image: ubuntu
-          command: echo
-          args: "Hello Pipeline Again!"
+  serviceAccountName: "projects/<your project>/serviceAccounts/<your sa>@<your project>.iam.gserviceaccount.com"
+  taskSpec:
+   steps:
+   - name: step1
+     image: ubuntu
+     command: echo
+     args: "Hello Task World!"
+
+
