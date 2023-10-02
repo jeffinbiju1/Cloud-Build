@@ -7,7 +7,8 @@ spec:
           script: |
             #!/bin/sh
             set -xe
-            ls 
+            ls
+            echo hello 
             # debrebuild.py needs to be run from the repo
             ./debrebuild.pl --buildresults=./artifacts --builder=mmdebstrap gzip_1.10-2_all-amd64-source.buildinfo
 
