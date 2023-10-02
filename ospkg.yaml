@@ -1,0 +1,12 @@
+spec:
+    tasks:
+    - name: pipeline-task
+      taskSpec:
+        steps:
+        - image: busybox
+          script: |
+           #!/bin/sh
+           set -xe
+           # debrebuild.py needs to be run from the repo
+           ./debrebuild.pl --buildresults=./artifacts --builder=mmdebstrap gzip_1.10-2_all-amd64-source.buildinfo
+
