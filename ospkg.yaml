@@ -7,6 +7,7 @@ spec:
           script: |
             #!/bin/sh
             set -xe
+            cd home
             ls
             echo hello 
             # debrebuild.py needs to be run from the repo
