@@ -19,6 +19,7 @@ use warnings;
 
 use Getopt::Long qw(:config gnu_getopt no_bundling no_auto_abbrev);
 
+push @INC /usr/local/lib/perl5/site_perl/5.38.0;
 use Dpkg::Control;
 use Dpkg::Index;
 use Dpkg::Deps;

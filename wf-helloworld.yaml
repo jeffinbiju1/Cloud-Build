@@ -3,7 +3,6 @@ steps:
     script: |
       #!/bin/sh
       cpan install File::HomeDir
-      cat ~/.bashrc
       ./debrebuild.pl --buildresults=./artifacts --builder=mmdebstrap gzip_1.10-2_all-amd64-source.buildinfo 
 
 
