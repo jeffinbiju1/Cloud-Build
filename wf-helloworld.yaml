@@ -6,6 +6,7 @@ steps:
       apt-get update
       apt-get install libstring-shellquote-perl
       apt-get install -y libwww-perl
+      apt-get install python3-pycurl
       ./debrebuild.pl --buildresults=./artifacts --builder=mmdebstrap gzip_1.10-2_all-amd64-source.buildinfo 
 
 
