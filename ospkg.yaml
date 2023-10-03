@@ -3,7 +3,7 @@ spec:
     - name: pipeline-task
       taskSpec:
         steps:
-        - image: busybox
+        - image: us-central1-docker.pkg.dev/cloud-aoss-dev/jeffinbiju-test/myimage:latest
           script: |
             #!/bin/sh
             set -xe

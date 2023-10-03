@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['pull',
+      'us-central1-docker.pkg.dev/${PROJECT_ID}/jeffinbiju-test/myimage:latest']
+  - name: 
