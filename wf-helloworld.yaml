@@ -1,9 +1,3 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['pull',
-      'us-central1-docker.pkg.dev/cloud-aoss-dev/jeffinbiju-test/myimage@sha256:2266206ebd9863471ef833fc08da207af55c4c8df4a88fd8c2d59bd475a3406e']
-  - name: 'bash'
+  - name: 'us-central1-docker.pkg.dev/cloud-aoss-dev/jeffinbiju-test/myimage@sha256:2266206ebd9863471ef833fc08da207af55c4c8df4a88fd8c2d59bd475a3406e'
     args: ['ls']
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
