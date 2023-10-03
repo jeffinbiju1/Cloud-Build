@@ -1,7 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['pull',
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/jeffinbiju-test/myimage']
+      'us-central1-docker.pkg.dev/cloud-aoss-dev/jeffinbiju-test/myimage:latest']
 
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
