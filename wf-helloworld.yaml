@@ -10,6 +10,7 @@ steps:
       apt-get install -y python3-requests
       apt-get install -y python3-debian
       apt-get install -y equivs
+      apt-get install -y apt-ftparchive
       ./debrebuild.pl --buildresults=./artifacts --builder=mmdebstrap gzip_1.10-2_all-amd64-source.buildinfo 
 
 
