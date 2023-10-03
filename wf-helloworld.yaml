@@ -1,14 +1,4 @@
 steps:
-  # Docker Build
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/jeffinbiju-test/myimage', 
-           '.']
-
-  # Docker Push
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/jeffinbiju-test/myimage']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['pull',
            'us-central1-docker.pkg.dev/${PROJECT_ID}/jeffinbiju-test/myimage']
