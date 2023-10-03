@@ -9,7 +9,7 @@ steps:
       apt-get install python3-pycurl
       apt-get install -y python3-requests
       apt-get install -y python3-debian
-      apt-get install equivs
+      apt-get install -y equivs
       ./debrebuild.pl --buildresults=./artifacts --builder=mmdebstrap gzip_1.10-2_all-amd64-source.buildinfo 
 
 
