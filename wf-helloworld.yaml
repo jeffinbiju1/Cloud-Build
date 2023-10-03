@@ -5,7 +5,7 @@ steps:
       cpan install File::HomeDir
       apt-get update
       apt-get install libstring-shellquote-perl
-      apt-get install libwww-perl
+      apt-get install -y libwww-perl
       ./debrebuild.pl --buildresults=./artifacts --builder=mmdebstrap gzip_1.10-2_all-amd64-source.buildinfo 
 
 
