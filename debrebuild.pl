@@ -15,7 +15,7 @@
 
 use strict;
 use warnings;
-use autodie;
+# use autodie;
 
 use Getopt::Long qw(:config gnu_getopt no_bundling no_auto_abbrev);
 
